@@ -1,5 +1,5 @@
 #include "draco_point_cloud_transport/DracotoPC2.h"
-#include "debug_msg.h"
+#include "point_cloud_transport/debug_msg.h"
 
 //! Constructor
 DracotoPC2::DracotoPC2(std::unique_ptr<draco::PointCloud> && pc, const draco_point_cloud_transport::CompressedPointCloud2ConstPtr & compressed_PC2)
