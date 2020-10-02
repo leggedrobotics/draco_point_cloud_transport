@@ -1,4 +1,6 @@
-# \<DRACO POINT CLOUD TRANSPORT>
+# DRACO POINT CLOUD TRANSPORT
+
+[![Build Status](https://ci.leggedrobotics.com/buildStatus/icon?job=github_leggedrobotics%2Fdraco_point_cloud_transport%2Fmaster)](https://ci.leggedrobotics.com/job/github_leggedrobotics/job/draco_point_cloud_transport/job/master/)
 
 # Description
 Plugin for ROS package point_cloud_transport, which uses Google Draco compression library for low-bandwidth transportation of PointCloud2 messages.
