@@ -1,5 +1,5 @@
 #include "draco_point_cloud_transport/PC2toDraco.h"
-#include "point_cloud_transport/debug_msg.h"
+#include "draco_point_cloud_transport/debug_msg.h"
 
 //! Constructor
 PC2toDraco::PC2toDraco(sensor_msgs::PointCloud2 PC2, std::string topic)
@@ -220,5 +220,3 @@ std::unique_ptr<draco::PointCloud> PC2toDraco::convert(bool deduplicate_flag, bo
     }
     return pc;
 }
-
-
