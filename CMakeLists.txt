@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(draco_point_cloud_transport)
 
 find_package(catkin REQUIRED
@@ -10,8 +10,6 @@ find_package(catkin REQUIRED
         std_msgs)
 
 find_package(Draco REQUIRED)
-message("${draco_INCLUDE_DIR}")
-message("${draco_LIBRARY_DIR}")
 
 add_message_files(
         FILES
@@ -27,10 +25,10 @@ generate_messages(
 generate_dynamic_reconfigure_options(cfg/DracoPublisher.cfg cfg/DracoSubscriber.cfg)
 
 catkin_package(
-  INCLUDE_DIRS include
+  INCLUDE_DIRS include ${draco_INCLUDE_DIR}
   LIBRARIES ${PROJECT_NAME} ${draco_LIBRARY_DIR}
   CATKIN_DEPENDS dynamic_reconfigure point_cloud_transport sensor_msgs std_msgs message_runtime
-  DEPENDS draco
+  DEPENDS
 )
 
 include_directories(include
@@ -48,7 +46,7 @@ add_library(${PROJECT_NAME}
         src/DracotoPC2.cpp
         src/PC2toDraco.cpp)
 
-add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg draco_point_cloud_transport_generate_messages_cpp draco)
+add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_gencfg draco_point_cloud_transport_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} libdraco.so)
 
 class_loader_hide_library_symbols(${PROJECT_NAME})
